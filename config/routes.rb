@@ -1,28 +1,6 @@
 Rails.application.routes.draw do
   root to: 'years#index'
 
-  get '/nebulas', to: 'nebulas#index'
-  get '/nebulas/:id', to: 'nebulas#show', as: 'nebula'
-
-  get '/nebulas/new', to: 'nebulas#new'
-  post '/nebulas', to: 'nebulas#create'
-
-  get '/nebulas/:id/edit', to: 'nebulas#edit'
-  patch '/nebulas/:id/update', to: 'nebulas#update'
-
-  delete 'nebulas/:id', to: 'nebulas#destroy', as: 'delete_nebula'
-
-  get '/hugos', to: 'hugos#index'
-  get '/hugos/:id', to: 'hugos#show', as: 'hugo'
-
-  get '/hugos/new', to: 'hugos#new'
-  post '/hugos', to: 'hugos#create'
-
-  get '/hugos/:id/edit', to: 'hugos#edit'
-  patch '/hugos/:id', to: 'hugos#update'
-
-  delete '/hugos/:id', to: 'hugos#destroy', as: 'delete_hugo'
-
   get '/years', to: 'years#index'
   get '/years/:id', to: 'years#show', as: 'year'
 
