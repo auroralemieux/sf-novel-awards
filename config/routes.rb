@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  # resources :years, only: [:index, :show, :new] #for example
+  
   root to: 'years#index'
 
   get '/years', to: 'years#index'
