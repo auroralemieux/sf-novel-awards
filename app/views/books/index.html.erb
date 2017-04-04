@@ -6,6 +6,9 @@
     <% author = book.author %>
     <% author_name = "#{author.first_name} #{author.last_name}" %>
     <li>
+      <%= image_tag book.cover %>
+    </li>
+    <li>
       <%= link_to book.title, book_path(book.id) %>, by <%= link_to author_name, author_path(author.id) %>
     </li>
     <li>
