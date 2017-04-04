@@ -1,0 +1,2 @@
+module HugosHelper
+end

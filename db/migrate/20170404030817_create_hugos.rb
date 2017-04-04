@@ -1,0 +1,7 @@
+class CreateHugos < ActiveRecord::Migration[5.0]
+  def change
+    create_table :hugos do |t|
+      t.timestamps
+    end
+  end
+end
