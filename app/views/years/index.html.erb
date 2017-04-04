@@ -1,2 +1,17 @@
-<h1>Years#index</h1>
-<p>Find me in app/views/years/index.html.erb</p>
+<h1>All Years</h1>
+
+  <% @years.each do |year| %>
+    <h3><%= year.year %></h3>
+    <ul>
+    <% year.books.each do |book| %>
+
+      <% author = book.author %>
+      <% name = "#{author.first_name} #{author.last_name}" %>
+
+      <li>
+        <%= link_to book.title, book_path(book.id) %>, by <%= link_to name, author_path(author.id) %>
+      </li>
+    <% end %>
+    </ul>
+
+  <% end %>
