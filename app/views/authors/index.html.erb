@@ -1,2 +1,17 @@
-<h1>Authors#index</h1>
-<p>Find me in app/views/authors/index.html.erb</p>
+<h1>All Authors</h1>
+<%# link_to "all Nebula winners", @books.where(award: "Nebula") %>
+<%# link_to "all Hugo winners", @books.where(award: "Hugo") %>
+<ul>
+  <% @authors.each do |author| %>
+  <% author_name = "#{author.first_name} #{author.last_name}" %>
+  <% if author.death_year == nil %>
+    <% author_death = " " %>
+  <% else %>
+    <% author_death = author.death_year %>
+  <% end %>
+  <% author_years = "#{author.birth_year}-#{author_death}" %>
+    <li>
+      <%= link_to author_name, author_path(author.id) %> (<%=author_years%>), from <%= author.birth_place %>
+    </li>
+  <% end %>
+</ul>

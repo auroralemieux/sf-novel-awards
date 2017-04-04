@@ -1,0 +1,37 @@
+<%= form_for @book do |f| %>
+  <ul>
+    <li>
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </li>
+    <li>
+      <%= f.label :cover %>
+      <%= f.text_field :cover %>
+    </li>
+    <li>
+      <%= f.label :publisher %>
+      <%= f.text_field :publisher %>
+    </li>
+    <li>
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </li>
+    <li>
+      <%= f.label :author_id %>
+      <%= f.collection_select(:author_id, Author.all, :id, :last_name) %>
+      <%# authors_array = Author.all.map { |author| ["#{author.first_name} #{author.last_name}", author.id]}
+      <%= select("book", "author_id", Author.all.collect { |author| "#{author.first_name} #{author.last_name}" }) %>
+    </li>
+    <li>
+      <%= f.label :year_id %>
+      <%= f.collection_select(:year_id, Year.all, :id, :year) %>
+      <%# authors_array = Author.all.map { |author| ["#{author.first_name} #{author.last_name}", author.id]}
+      <%= select("book", "author_id", Author.all.collect { |author| "#{author.first_name} #{author.last_name}" }) %>
+    </li>
+    <li>
+      <%= f.submit "save" %>
+    </li>
+  </ul>
+
+
+<% end %>

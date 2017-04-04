@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SfNovelAwards</title>
+    <title>Award-winning Speculative Fiction Novels</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,38 +9,43 @@
   </head>
 
   <body>
-    <ul>
-      <li>
-        <%= link_to "add a year", years_new_path %>
-      </li>
-      <li>
-        <%= link_to "add an author", authors_new_path %>
-      </li>
-      <li>
-        <%= link_to "add a book", books_new_path %>
-      </li>
-      <li>
-        <%= link_to "all books", books_path %>
-      </li>
+    <section class="top-nav">
+      <h1>AWARD-WINNING SPECULATIVE FICTION NOVELS</h1>
+      <ul>
+        <li>
+          <%= link_to "add a year", years_new_path %>
+        </li>
+        <li>
+          <%= link_to "add an author", authors_new_path %>
+        </li>
+        <li>
+          <%= link_to "add a book", books_new_path %>
+        </li>
+        <li>
+          <%= link_to "all books", books_path %>
+        </li>
 
-      <li>
-        <%= link_to "all authors", authors_path %>
-      </li>
-      <li>
-        <%= link_to "home", root_path %>
-      </li>
-    </ul>
+        <li>
+          <%= link_to "all authors", authors_path %>
+        </li>
+        <li>
+          <%= link_to "home", root_path %>
+        </li>
+      </ul>
+    </section>
 
 
     <%= yield %>
+    <section class="bottom-nav">
+      <ul>
+        <li>
+          &copy; 2017
+        </li>
+        <li>
+          <%= link_to "aurora lemieux anderson", "http://www.githut.com/auroralemieux" %>
+        </li>
+      </ul>
+    </section>
 
-    <ul>
-      <li>
-        &copy; 2017
-      </li>
-      <li>
-        <%= link_to "aurora lemieux anderson", "http://www.githut.com/auroralemieux" %>
-      </li>
-    </ul>
   </body>
 </html>
