@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
   def index
-    @authors = Author.all
+    @authors = Author.all.order(:birth_year)
   end
 
   def show
@@ -13,6 +13,7 @@ class AuthorsController < ApplicationController
 
   def create
     @author = Author.create(author_params)
+    @author.full_name = "#{@author.first_name} #{@author.last_name}"
     if @author.save
       redirect_to authors_path
     else

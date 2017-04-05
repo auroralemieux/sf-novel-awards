@@ -22,7 +22,7 @@
     </li>
     <li>
       <%= f.label :author_id %>
-      <%= f.collection_select(:author_id, Author.all, :id, :last_name) %>
+      <%= f.collection_select(:author_id, Author.all, :id, :full_name) %>
     </li>
     <li>
       <%= f.label :year_id %>
@@ -30,6 +30,9 @@
     </li>
     <li>
       <%= f.submit "save" %>
+    </li>
+    <li>
+      <%= link_to "cancel", :back %>
     </li>
   </ul>
 
