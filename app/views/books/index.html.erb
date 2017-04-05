@@ -1,12 +1,13 @@
 <h1>All Books</h1>
 <%# link_to "all Nebula winners", @books.where(award: "Nebula") %>
 <%# link_to "all Hugo winners", @books.where(award: "Hugo") %>
-<ul>
-  <% @books.each do |book| %>
+<% @books.each do |book| %>
+  <ul>
     <% author = book.author %>
     <% author_name = "#{author.first_name} #{author.last_name}" %>
     <li>
-      <%= image_tag book.cover %>
+      image will go here
+      <%# image_tag book.cover %>
     </li>
     <li>
       <%= link_to book.title, book_path(book.id) %>, by <%= link_to author_name, author_path(author.id) %>
@@ -16,5 +17,6 @@
       <% book_year = year.year %>
       won the <%= book.award %> in <%= book_year %>.
     </li>
-  <% end %>
-</ul>
+  </ul>
+
+<% end %>

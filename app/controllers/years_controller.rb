@@ -25,8 +25,8 @@ class YearsController < ApplicationController
   end
 
   def update
-    @year = Year.update(year_params)
-    if @year.save
+    @year = Year.find(params[:id])
+    if @year.update(year_params)
       redirect_to years_path
     else
       render :edit
@@ -34,7 +34,8 @@ class YearsController < ApplicationController
   end
 
   def destroy
-    @year = Year.find(params[:id]).delete
+    @year = Year.find(params[:id]).destroy
+    redirect_to years_path
   end
 
   private

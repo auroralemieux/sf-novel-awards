@@ -17,16 +17,16 @@
       <%= f.text_area :description %>
     </li>
     <li>
+      <%= f.label :award %>
+      <%= select(:book, :award, Book::AWARDS.keys, {include_blank: true}, required:true ) %>
+    </li>
+    <li>
       <%= f.label :author_id %>
       <%= f.collection_select(:author_id, Author.all, :id, :last_name) %>
-      <%# authors_array = Author.all.map { |author| ["#{author.first_name} #{author.last_name}", author.id]}
-      <%= select("book", "author_id", Author.all.collect { |author| "#{author.first_name} #{author.last_name}" }) %>
     </li>
     <li>
       <%= f.label :year_id %>
       <%= f.collection_select(:year_id, Year.all, :id, :year) %>
-      <%# authors_array = Author.all.map { |author| ["#{author.first_name} #{author.last_name}", author.id]}
-      <%= select("book", "author_id", Author.all.collect { |author| "#{author.first_name} #{author.last_name}" }) %>
     </li>
     <li>
       <%= f.submit "save" %>

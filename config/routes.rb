@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/years/new', to: 'years#new'
   post '/years', to: 'years#create'
   get '/years/:id', to: 'years#show', as: 'year'
-  get '/years/:id/edit', to: 'years#edit'
+  get '/years/:id/edit', to: 'years#edit', as: 'edit_year'
   patch '/years/:id', to: 'years#update'
   delete '/years/:id', to: 'years#destroy', as: 'delete_year'
 
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get '/authors/new', to: 'authors#new'
   post '/authors', to: 'authors#create'
   get '/authors/:id', to: 'authors#show', as: 'author'
-  get '/authors/:id/edit', to: 'authors#edit'
+  get '/authors/:id/edit', to: 'authors#edit', as: 'edit_author'
   patch '/authors/:id', to: 'authors#update'
   delete '/authors/:id', to: 'authors#destroy', as: 'delete_author'
 
@@ -24,7 +24,7 @@ Rails.application.routes.draw do
   get '/books/new', to: 'books#new'
   post '/books', to: 'books#create'
   get '/books/:id', to: 'books#show', as: 'book'
-  get '/books/:id/edit', to: 'books#edit'
+  get '/books/:id/edit', to: 'books#edit', as: 'edit_book'
   patch '/books/:id', to: 'books#update'
   delete '/books/:id', to: 'books#destroy', as: 'delete_book'
 

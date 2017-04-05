@@ -1,2 +1,24 @@
-<h1>Authors#show</h1>
-<p>Find me in app/views/authors/show.html.erb</p>
+<h1><%=@author.first_name%> <%=@author.last_name%> (<%=@author.birth_year%>-<%=@author.death_year%>)</h1>
+
+<p>
+  <%=@author.first_name%> <%=@author.last_name%> is originally from <%=@author.birth_place%>.
+</p>
+
+<h2><%=@author.first_name%>'s Books</h2>
+
+  <% @author.books.each do |book| %>
+
+    <ul>
+      <li>
+        <%= link_to book.title, book_path(book.id) %>
+      </li>
+    </ul>
+
+  <% end %>
+
+  <li>
+    <%= link_to "edit author", edit_author_path(@author.id) %>
+  </li>
+  <li>
+    <%= link_to "delete author", delete_author_path(@author.id), method: :delete %>
+  </li>

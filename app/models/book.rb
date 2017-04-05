@@ -1,4 +1,6 @@
 class Book < ApplicationRecord
+
+  AWARDS = {Nebula: "Nebula", Hugo: "Hugo"}
   belongs_to :author
   belongs_to :year
 
@@ -7,6 +9,7 @@ class Book < ApplicationRecord
   validates :publisher, presence: true
   validates :description, presence: true
   validates :year_id, presence: true
+
 
 
 end

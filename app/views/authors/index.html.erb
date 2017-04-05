@@ -4,12 +4,7 @@
 <ul>
   <% @authors.each do |author| %>
   <% author_name = "#{author.first_name} #{author.last_name}" %>
-  <% if author.death_year == nil %>
-    <% author_death = " " %>
-  <% else %>
-    <% author_death = author.death_year %>
-  <% end %>
-  <% author_years = "#{author.birth_year}-#{author_death}" %>
+  <% author_years = "#{author.birth_year}-#{author.death_year}" %>
     <li>
       <%= link_to author_name, author_path(author.id) %> (<%=author_years%>), from <%= author.birth_place %>
     </li>
