@@ -3,17 +3,21 @@
   <% @years.each do |year| %>
     <h3><%= year.year %></h3>
     <ul>
-    <% year.books.each do |book| %>
+      <% books = year.books.order(:award) %>
+      <% books.each do |book| %>
 
-      <li>
-        <%= book.award %>: <%= link_to book.title, book_path(book.id) %>, by <%= link_to book.author.full_name, author_path(book.author.id) %> 
-      </li>
-    <% end %>
-    <% if year.books.size == 0 %>
-      <p>
-        No books found for <%= year.year %>.
-      </p>
-    <% end %>
+        <li>
+          <%= book.award %>: <%= link_to book.title, book_path(book.id) %>, by <%= link_to book.author.full_name, author_path(book.author.id) %>
+        </li>
+
+      <% end %>
+
+      <% if year.books.size == 0 %>
+        <p>
+          No books found for <%= year.year %>.
+        </p>
+      <% end %>
+      
     </ul>
 
   <% end %>
