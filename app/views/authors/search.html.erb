@@ -1,9 +1,5 @@
-<h1>All Authors</h1>
+<h1>Author Search</h1>
 <!-- add sort functionality for authors -->
-<%= form_tag(authors_path, :method => "get", id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Authors" %>
-    <%= submit_tag "Search", :name => nil %>
-<% end %>
 
 <ul>
   <% @authors.each do |author| %>
@@ -18,7 +14,4 @@
       No authors found.
     </p>
   <% end %>
-  <% if @authors.blank? %>
-  <h4>There are no authors matching the term <%= params[:search] %>.</h4>
-<% end %>
 </ul>

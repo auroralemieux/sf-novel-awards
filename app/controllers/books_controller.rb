@@ -6,6 +6,12 @@ class BooksController < ApplicationController
       format.html
       format.csv { send_data @books.to_csv }
     end
+
+    if params[:search]
+      @books = @books.search(params[:search]).order("created_at DESC")
+    else
+      @books = @books.all.order("created_at DESC")
+    end
   end
 
   def show

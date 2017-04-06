@@ -14,4 +14,8 @@ class Year < ApplicationRecord
     end
   end
 
+  def self.search(search)
+    where("year ILIKE ?", "%#{search}%")
+  end
+
 end

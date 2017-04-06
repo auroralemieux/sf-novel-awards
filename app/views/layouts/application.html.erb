@@ -10,7 +10,7 @@
 
   <body>
     <section class="top-nav">
-      <h1>AWARD-WINNING SPECULATIVE FICTION NOVELS</h1>
+      <h1><%= link_to "AWARD-WINNING SPECULATIVE FICTION NOVELS", root_path %></h1>
       <ul>
         <li>
           <%= link_to "add a year", years_new_path %>
@@ -29,7 +29,7 @@
           <%= link_to "all authors", authors_path %>
         </li>
         <li>
-          <%= link_to "home", root_path %>
+          <%= link_to "all years", root_path %>
         </li>
       </ul>
     </section>

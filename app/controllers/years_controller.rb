@@ -6,6 +6,13 @@ class YearsController < ApplicationController
       format.html
       format.csv { send_data @years.to_csv }
     end
+
+    if params[:search]
+      @years = @years.search(params[:search]).order("created_at DESC")
+    else
+      @years = @years.all.order("created_at DESC")
+    end
+
   end
 
   def show
