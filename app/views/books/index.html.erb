@@ -4,6 +4,8 @@
     <%= text_field_tag :search, params[:search], placeholder: "Search Books" %>
     <%= submit_tag "Search", :name => nil %>
 <% end %>
+<%= button_to 'Reset', books_path, method: :get %>
+
 
 <% @books.each do |book| %>
   <ul>
