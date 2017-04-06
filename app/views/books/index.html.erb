@@ -3,20 +3,18 @@
 <%# link_to "all Hugo winners", @books.where(award: "Hugo") %>
 <% @books.each do |book| %>
   <ul>
-    <% author = book.author %>
-    <% author_name = "#{author.first_name} #{author.last_name}" %>
-    <li>
+    <!-- <li>
       image will go here
       <%# image_tag book.cover %>
-    </li>
+    </li> -->
     <li>
-      <%= link_to book.title, book_path(book.id) %>, by <%= link_to author_name, author_path(author.id) %>
-    </li>
-    <li>
-      <% year = book.year %>
-      <% book_year = year.year %>
-      won the <%= book.award %> in <%= book_year %>.
+      <%= link_to book.title, book_path(book.id) %>, by <%= link_to book.author.full_name, author_path(book.author.id) %>, won the <%= book.award %> in <%= book.year.year %>.
     </li>
   </ul>
 
 <% end %>
+<% if @books.size == 0 %>
+    <p>
+      No books found.
+    </p>
+  <% end %>

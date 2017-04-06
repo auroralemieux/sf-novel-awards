@@ -6,7 +6,12 @@
   <% author_name = "#{author.first_name} #{author.last_name}" %>
   <% author_years = "#{author.birth_year}-#{author.death_year}" %>
     <li>
-      <%= link_to author_name, author_path(author.id) %> (<%=author_years%>), from <%= author.birth_place %>
+      <%= link_to author_name, author_path(author.id) %> (<%=author_years%>), born in <%= author.birth_place %>
     </li>
+  <% end %>
+  <% if @authors.size == 0 %>
+    <p>
+      No authors found.
+    </p>
   <% end %>
 </ul>

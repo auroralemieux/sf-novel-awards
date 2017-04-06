@@ -22,11 +22,11 @@
     </li>
     <li>
       <%= f.label :author_id %>
-      <%= f.collection_select(:author_id, Author.all, :id, :full_name) %>
+      <%= f.collection_select(:author_id, Author.all.order(:last_name), :id, :full_name) %>
     </li>
     <li>
       <%= f.label :year_id %>
-      <%= f.collection_select(:year_id, Year.all, :id, :year) %>
+      <%= f.collection_select(:year_id, Year.all.order(:year), :id, :year) %>
     </li>
     <li>
       <%= f.submit "save" %>

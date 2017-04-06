@@ -1,6 +1,6 @@
 class Book < ApplicationRecord
 
-  AWARDS = {Nebula: "Nebula", Hugo: "Hugo"}
+  AWARDS = {"Nebula" => "Nebula", "Hugo" => "Hugo", "Nebula & Hugo" => "Nebula & Hugo"}
   belongs_to :author
   belongs_to :year
 
@@ -10,6 +10,15 @@ class Book < ApplicationRecord
   validates :description, presence: true
   validates :year_id, presence: true
 
+  def self.to_csv
+    attributes = %w(title cover publisher description author_id year_id award)
+    CSV.generate( headers: true ) do |csv|
+      csv << attributes
 
+      all.each do |book|
+        csv << book.attributes.values_at(*attributes)
+      end
+    end
+  end
 
 end

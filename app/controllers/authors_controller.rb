@@ -1,6 +1,11 @@
 class AuthorsController < ApplicationController
   def index
     @authors = Author.all.order(:birth_year)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @authors.to_csv }
+    end
   end
 
   def show

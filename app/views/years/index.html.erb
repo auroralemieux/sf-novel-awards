@@ -5,12 +5,14 @@
     <ul>
     <% year.books.each do |book| %>
 
-      <% author = book.author %>
-      <% name = "#{author.first_name} #{author.last_name}" %>
-
       <li>
-        <%= link_to book.title, book_path(book.id) %>, by <%= link_to name, author_path(author.id) %>
+        <%= book.award %>: <%= link_to book.title, book_path(book.id) %>, by <%= link_to book.author.full_name, author_path(book.author.id) %> 
       </li>
+    <% end %>
+    <% if year.books.size == 0 %>
+      <p>
+        No books found for <%= year.year %>.
+      </p>
     <% end %>
     </ul>
 
