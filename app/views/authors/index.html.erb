@@ -1,6 +1,5 @@
 <h1>All Authors</h1>
-<%# link_to "all Nebula winners", @books.where(award: "Nebula") %>
-<%# link_to "all Hugo winners", @books.where(award: "Hugo") %>
+<!-- add sort functionality for authors -->
 <ul>
   <% @authors.each do |author| %>
   <% author_name = "#{author.first_name} #{author.last_name}" %>

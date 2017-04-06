@@ -5,21 +5,22 @@
 </p>
 
 <h2><%= @author.first_name %>'s Books</h2>
+<% books = @author.books.order(:award) %>
 
-  <% @author.books.each do |book| %>
+<% books.each do |book| %>
+  <ul>
+    <li>
+      <%= link_to book.title, book_path(book.id) %> ( <%= book.year.year %> <%= book.award %> )
+    </li>
+  </ul>
 
-    <ul>
-      <li>
-        <%= link_to book.title, book_path(book.id) %>
-      </li>
-    </ul>
-
-  <% end %>
-  <% if @author.books.size == 0 %>
-    <p>
-      No books found.
-    </p>
-  <% end %>
+<% end %>
+<% if @author.books.size == 0 %>
+  <p>
+    No books found.
+  </p>
+<% end %>
+<ul>
 
   <li>
     <%= link_to "edit author", edit_author_path(@author.id) %>
@@ -30,3 +31,5 @@
   <li>
     <%= link_to "delete author", delete_author_path(@author.id), method: :delete, data: { confirm: "Really delete this author?" }  %>
   </li>
+
+</ul>
