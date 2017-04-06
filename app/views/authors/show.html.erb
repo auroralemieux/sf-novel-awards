@@ -5,7 +5,7 @@
 </p>
 
 <h2><%= @author.first_name %>'s Books</h2>
-<% books = @author.books.order(:award) %>
+<% books = @author.books.order(:year_id) %>
 
 <% books.each do |book| %>
   <ul>
@@ -26,7 +26,7 @@
     <%= link_to "edit author", edit_author_path(@author.id) %>
   </li>
   <li>
-    <%= link_to "cancel", :back %>
+    <%= link_to "back", :back %>
   </li>
   <li>
     <%= link_to "delete author", delete_author_path(@author.id), method: :delete, data: { confirm: "Really delete this author?" }  %>
