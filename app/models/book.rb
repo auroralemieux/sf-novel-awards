@@ -22,7 +22,7 @@ class Book < ApplicationRecord
   end
 
   def self.search(search)
-    where("author ILIKE ? OR title ILIKE ? OR publisher ILIKE ? OR description ILIKE ? OR award ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+    where("title ILIKE ? OR publisher ILIKE ? OR description ILIKE ? OR award ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
 end

@@ -1,11 +1,9 @@
 <h1><%=@book.title%></h1>
 
-<% author = @book.author %>
-<% author_name = "#{author.first_name} #{author.last_name}" %>
 <ul>
   <!-- <img src="<%# @book.cover%>"> -->
   <li>
-    Author: <%= link_to author_name, author_path(author.id) %>
+    Author: <%= link_to @book.author.full_name, author_path(@book.author.id) %>
   </li>
   <li>
     Published by: <%= @book.publisher %>
@@ -29,4 +27,8 @@
   <li>
     <%= link_to "delete book", delete_book_path(@book.id), method: :delete, data: { confirm: "Really delete this book?" }  %>
   </li>
+  <li>
+    <%= link_to "back", :back %>
+  </li>
+
 </ul>

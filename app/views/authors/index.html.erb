@@ -1,8 +1,8 @@
 <h1>All Authors</h1>
 <!-- add sort functionality for authors -->
-<%= form_tag(authors_path, :method => "get", id: "search-form") do %>
+<%= form_tag(authors_path, method: :get, id: "search-form") do %>
     <%= text_field_tag :search, params[:search], placeholder: "Search Authors" %>
-    <%= submit_tag "Search", :name => nil %>
+    <%= submit_tag "Search", name: nil %>
 <% end %>
 <%= button_to 'Reset', authors_path, method: :get %>
 

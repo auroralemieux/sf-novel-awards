@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all.order(:award)
+    @books = Book.all.order(:title)
 
     respond_to do |format|
       format.html

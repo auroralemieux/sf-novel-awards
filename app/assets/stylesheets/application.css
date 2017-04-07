@@ -13,3 +13,49 @@
  *= require_tree .
  *= require_self
  */
+
+/* colors */
+/*med-dark-blue: #006FB2;
+pale-blue: #B3E2FF;
+med-blue: #009EFF;
+med-dark-gold-brown: #B26800;
+med-sand: #FFA426;*/
+
+@import url('https://fonts.googleapis.com/css?family=Alice|Baloo+Bhai|Bungee+Shade|Cabin+Sketch|Crimson+Text|Faster+One|Fugaz+One|Play');
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #006FB2;
+}
+
+header {
+  background-color: #FFA426;
+}
+
+.main-app-header {
+  font-family: "Fugaz One";
+  font-size: 3em;
+}
+
+.top-bar-nav {
+  display: block;
+}
+
+.top-bar-nav li {
+  display: inline-block;
+}
+
+.top-bar-nav li a {
+  font-family: "Baloo Bhai";
+  padding: 0 10px;
+  text-align: center;
+}

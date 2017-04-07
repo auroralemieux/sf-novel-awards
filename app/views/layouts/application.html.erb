@@ -9,30 +9,33 @@
   </head>
 
   <body>
-    <section class="top-nav">
-      <h1><%= link_to "AWARD-WINNING SPECULATIVE FICTION NOVELS", root_path %></h1>
-      <ul>
-        <li>
-          <%= link_to "add a year", years_new_path %>
-        </li>
-        <li>
-          <%= link_to "add an author", authors_new_path %>
-        </li>
-        <li>
-          <%= link_to "add a book", books_new_path %>
-        </li>
-        <li>
-          <%= link_to "all books", books_path %>
-        </li>
+    <header>
+      <section class="top-nav">
+        <h1 class="main-app-header"><%= link_to "AWARD-WINNING SPEC FIC NOVELS", root_path %></h1>
+        <ul class="top-bar-nav">
+          <li>
+            <%= link_to "add a year", years_new_path %>
+          </li>
+          <li>
+            <%= link_to "add an author", authors_new_path %>
+          </li>
+          <li>
+            <%= link_to "add a book", books_new_path %>
+          </li>
+          <li>
+            <%= link_to "all books", books_path %>
+          </li>
 
-        <li>
-          <%= link_to "all authors", authors_path %>
-        </li>
-        <li>
-          <%= link_to "all years", root_path %>
-        </li>
-      </ul>
-    </section>
+          <li>
+            <%= link_to "all authors", authors_path %>
+          </li>
+          <li>
+            <%= link_to "all years", root_path %>
+          </li>
+        </ul>
+      </section>
+    </header>
+
 
 
     <%= yield %>

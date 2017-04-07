@@ -18,7 +18,7 @@ class Author < ApplicationRecord
   end
 
   def self.search(search)
-    where("first_name ILIKE ? OR last_name ILIKE ? OR birth_year ILIKE ? OR death_year ILIKE ? OR birth_place ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+    where("first_name ILIKE ? OR vin ILIKE ? OR birth_year ILIKE ? OR death_year ILIKE ? OR birth_place ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
 end
