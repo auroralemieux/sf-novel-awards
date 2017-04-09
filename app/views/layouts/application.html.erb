@@ -37,18 +37,25 @@
     </header>
 
 
-
-    <%= yield %>
-    <section class="bottom-nav">
-      <ul>
-        <li>
-          &copy; 2017
-        </li>
-        <li>
-          <%= link_to "aurora lemieux anderson", "http://www.githut.com/auroralemieux" %>
-        </li>
-      </ul>
+    <section class="content">
+      <%= yield %>
     </section>
+    <footer>
+      <section class="bottom-nav">
+        <ul>
+          <li>
+            &copy; 2017
+          </li>
+          <li>
+            <%= link_to "aurora lemieux anderson", "http://www.github.com/auroralemieux" %>
+          </li>
+          <li>
+            <%= link_to "contact me", contacts_new_path %>
+          </li>
+        </ul>
+      </section>
+    </footer>
+
 
   </body>
 </html>

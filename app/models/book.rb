@@ -25,4 +25,13 @@ class Book < ApplicationRecord
     where("title ILIKE ? OR publisher ILIKE ? OR description ILIKE ? OR award ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
   end
 
+  def prev
+    Book.unscoped.where('title < ?', title).order('title ASC').last
+
+  end
+
+  def next
+    Book.unscoped.where('title > ?', title).order('title ASC').first
+  end
+
 end

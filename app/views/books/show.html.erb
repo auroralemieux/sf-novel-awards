@@ -1,4 +1,12 @@
 <h1><%=@book.title%></h1>
+<ul>
+  <li>
+    <%= link_to "Previous Book", @book.prev %>
+  </li>
+  <li>
+    <%= link_to "Next Book", @book.next %>
+  </li>
+</ul>
 
 <ul>
   <!-- <img src="<%# @book.cover%>"> -->
