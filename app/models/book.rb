@@ -35,7 +35,7 @@ class Book < ApplicationRecord
   end
 
   def by_author
-    Book.all.order(author.full_name)
+    @books = Book.all.order(author.full_name)
   end
 
 end

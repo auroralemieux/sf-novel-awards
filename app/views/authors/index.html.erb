@@ -5,20 +5,57 @@
     <%= submit_tag "Search", name: nil %>
 <% end %>
 <%= button_to 'Reset', authors_path, method: :get %>
+<section class="index-content">
 
-
-<ul>
+<table class="index-table">
+  <tr class="centered">
+    <th>
+      Name
+    </th>
+    <th>
+      Birth Year
+    </th>
+    <th>
+      Death Year
+    </th>
+    <th>
+      Birthplace
+    </th>
+    <th>
+      Awards
+    </th>
+  </tr>
   <% @authors.each do |author| %>
-  <% author_name = "#{author.first_name} #{author.last_name}" %>
-  <% author_years = "#{author.birth_year}-#{author.death_year}" %>
-    <li>
-      <%= link_to author_name, author_path(author.id) %> (<%=author_years%>), born in <%= author.birth_place %>
-    </li>
+  <tr>
+    <td>
+      <%= link_to author.full_name, author_path(author.id) %>
+    </td>
+    <td class="centered">
+      <%= author.birth_year %>
+    </td>
+    <td class="centered">
+      <%= author.death_year %>
+    </td>
+    <td class="centered">
+      <%= author.birth_place %>
+    </td>
+    <td>
+      <ul>
+      <% author.books.order(:title).each do |book|  %>
+        <li>
+          <%= link_to book.title, book_path(book.id) %> ( <%= book.award %>, <%= book.year.year %>)
+        </li>
+      <% end %>
+      </ul>
+    </td>
   <% end %>
   <% if @authors.size == 0 %>
     <p>
       No authors found.
     </p>
   <% end %>
+</tr>
 
-</ul>
+</table>
+
+</section>
