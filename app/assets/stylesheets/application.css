@@ -99,3 +99,21 @@ footer li {
 .top-nav {
   padding: 10px 0;
 }
+
+/*index*/
+
+.index-content {
+  display: block;
+
+}
+.index-table  {
+  text-align: left;
+}
+
+.centered {
+  text-align: center;
+}
+
+th {
+  font-size: 1.5em;
+}
