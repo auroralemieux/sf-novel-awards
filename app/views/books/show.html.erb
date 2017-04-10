@@ -29,7 +29,7 @@
     </ul>
   </section>
   <section class="show-right">
-    <%= image_tag @book.cover %>
+    <%= image_tag @book.cover, class: "book-cover" %>
     <p class="book-award-text">
       <%= @book.award %>
     </p>
@@ -42,10 +42,10 @@
       <%= link_to "edit book", edit_book_path(@book.id) %>
     </li>
     <li>
-      <%= link_to "delete book", delete_book_path(@book.id), method: :delete, data: { confirm: "Really delete this book?" }  %>
+      <%= link_to "back", :back %>
     </li>
     <li>
-      <%= link_to "back", :back %>
+      <%= link_to "delete book", delete_book_path(@book.id), method: :delete, data: { confirm: "Really delete this book?" }  %>
     </li>
 
   </ul>
