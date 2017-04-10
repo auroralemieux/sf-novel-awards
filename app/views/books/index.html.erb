@@ -2,7 +2,13 @@
 <ul class="search">
   <li>
     <%= form_tag(books_path, method: :get , id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Books" %>
+    <%= text_field_tag :search_description, params[:search_description], placeholder: "Description" %>
+    <%= submit_tag "Search", :name => nil %>
+    <% end %>
+  </li>
+  <li>
+    <%= form_tag(books_path, method: :get , id: "search-form") do %>
+    <%= text_field_tag :main_search, params[:main_search], placeholder: "Title, Author, or Award" %>
     <%= submit_tag "Search", :name => nil %>
     <% end %>
   </li>

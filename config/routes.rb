@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
 
-  get 'contacts/new'
-
-  get 'contacts/create'
+  resources :contacts,  only: [:new, :create]
 
   # resources :years, only: [:index, :show, :new] #for example
 

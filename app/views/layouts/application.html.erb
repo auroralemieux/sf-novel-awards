@@ -50,7 +50,7 @@
             <%= link_to "aurora lemieux anderson", "http://www.github.com/auroralemieux" %>
           </li>
           <li>
-            <%= link_to "contact me", contacts_new_path %>
+            <%= link_to "contact me", new_contact_path %>
           </li>
         </ul>
       </section>
@@ -58,4 +58,13 @@
 
 
   </body>
+
+  <div>
+    <% flash.each do |key, value| %>
+      <div>
+        <a href="#" data-dismiss="alert">×</a>
+          <%= value %>
+      </div>
+    <% end %>
+  </div>
 </html>

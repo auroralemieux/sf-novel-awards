@@ -7,8 +7,10 @@ class BooksController < ApplicationController
       format.csv { send_data @books.to_csv }
     end
 
-    if params[:search]
-      @books = @books.search(params[:search]).order("created_at DESC")
+    if params[:main_search]
+      @books = @books.main_search(params[:main_search]).order("created_at DESC")
+    elsif params[:search_description]
+      @books = @books.search_description(params[:search_description]).order("created_at DESC")
     else
       @books = @books.all.order("created_at DESC")
     end

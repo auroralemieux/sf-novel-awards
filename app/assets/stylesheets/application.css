@@ -105,8 +105,8 @@ header {
   text-align: center;
   margin: auto;
   font-family: "Crimson Text", serif;
-
 }
+
 
 .centered {
   text-align: center;
@@ -296,6 +296,31 @@ header {
 }
 
 
+/*contact*/
+
+.contact-page {
+  font-family: "Crimson Text", serif;
+  padding-top: 100px;
+  padding-left: 200px;}
+
+.contact-title {
+  font-size: 2em;
+  padding-bottom: 20px;
+}
+
+.contact-form {
+
+}
+
+.contact-message {
+  width: 50%;
+  padding-bottom: 15px;
+}
+
+.hidden {
+  display: none;
+}
+
 /*footer*/
 
 footer {
@@ -304,7 +329,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  font-family: "Baloo Bhai";
+  font-family: "Baloo Bhai", sans-serif;
 
 }
 

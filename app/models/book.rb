@@ -21,8 +21,14 @@ class Book < ApplicationRecord
     end
   end
 
-  def self.search(search)
-    where("title ILIKE ? OR publisher ILIKE ? OR description ILIKE ? OR award ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+  def self.search_description(search)
+    where("description ILIKE ?", "%#{search}%")
+  end
+
+  def self.main_search(search)
+    where("title ILIKE ? OR award ILIKE ?", "%#{search}%", "%#{search}%")
+    joins(:author).where("full_name ILIKE ?", "%#{search}%")
+
   end
 
   def prev
