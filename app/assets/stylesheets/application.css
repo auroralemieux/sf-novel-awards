@@ -37,6 +37,10 @@ a {
   color: #006FB2;
 }
 
+a:hover {
+  color: #B26800;
+}
+
 header {
   background-color: #FFA426;
   position: fixed;
@@ -46,7 +50,9 @@ header {
   z-index: 1;
 }
 
-
+header a:hover {
+  color: #B3E2FF;
+}
 
 .content {
   padding-top: 100px;
@@ -127,7 +133,7 @@ header {
 
 }
 
-.index-table tr:nth-child(2n+3), .author-books-table tr:nth-child(2n+3), .index-years tr:nth-child(2n+3) {
+.index-table tr:nth-child(2n+3), .index-years tr:nth-child(2n+3), .author-books-table tr:nth-child(2n+3) {
   background-color: #B3E2FF;
 }
 
@@ -140,9 +146,9 @@ header {
 }
 
 
-.index-table th, .author-books-table th, .index-years th {
+.index-table th, .index-years th {
   background-color: #006FB2;
-  color: #FFA426;
+  color: #B26800;
 }
 
 .year-book-title, .year-book-author {
@@ -164,10 +170,17 @@ header {
 
 /*show*/
 
+.author-books-table th {
+  background-color: #009EFF;
+  color: #FFA426;
+  font-size: 1.5em;
+}
+
 .next-prev li, .show-links-bottom li {
   display: inline-block;
   font-family: "Play", sans-serif;
   padding: 5px 10px ;
+
 }
 
 .left {
@@ -190,7 +203,7 @@ header {
   font-family: "Cabin Sketch", sans-serif;
 }
 
-.author-origin {
+.author-origin, {
   font-family: "Play", sans-serif;
 }
 
@@ -205,9 +218,8 @@ header {
   padding-bottom: 40px;
 }
 
-.book-detail-publisher, .description {
+.book-detail-publisher, .none-found, .description {
   font-family: "Crimson Text", serif;
-
 }
 
 
@@ -330,7 +342,10 @@ footer {
   bottom: 0;
   width: 100%;
   font-family: "Baloo Bhai", sans-serif;
+}
 
+footer a:hover {
+  color: #B3E2FF;
 }
 
 footer ul {

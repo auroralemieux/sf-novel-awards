@@ -2,8 +2,8 @@ class AuthorsController < ApplicationController
   def index
     @authors = Author.all.order(:last_name)
 
-    if params[:search]
-      @authors = @authors.search(params[:search]).order("created_at DESC")
+    if params[:author_search]
+      @authors = @authors.author_search(params[:author_search]).order("created_at DESC")
     else
       @authors = @authors.all.order("created_at DESC")
     end

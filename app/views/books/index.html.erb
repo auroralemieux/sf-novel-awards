@@ -8,7 +8,13 @@
   </li>
   <li>
     <%= form_tag(books_path, method: :get , id: "search-form") do %>
-    <%= text_field_tag :main_search, params[:main_search], placeholder: "Title, Author, or Award" %>
+    <%= text_field_tag :main_search, params[:main_search], placeholder: "Title or Award" %>
+    <%= submit_tag "Search", :name => nil %>
+    <% end %>
+  </li>
+  <li>
+    <%= form_tag(books_path, method: :get , id: "search-form") do %>
+    <%= text_field_tag :author_search, params[:author_search], placeholder: "Author" %>
     <%= submit_tag "Search", :name => nil %>
     <% end %>
   </li>
@@ -19,6 +25,12 @@
 
 <section class="index-content">
   <h1 class="index-header">All Books</h1>
+
+  <% if @books.size == 0 %>
+  <p class="none-found">
+    No books found.
+  </p>
+  <% else %>
 
   <table class="index-table">
     <tr class="centered">
@@ -52,11 +64,7 @@
     </tr>
     <% end %>
 
-    <% if @books.size == 0 %>
-    <p>
-      No books found.
-    </p>
-    <% end %>
 
   </table>
+  <% end %>
 </section>

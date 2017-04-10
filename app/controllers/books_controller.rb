@@ -11,6 +11,8 @@ class BooksController < ApplicationController
       @books = @books.main_search(params[:main_search]).order("created_at DESC")
     elsif params[:search_description]
       @books = @books.search_description(params[:search_description]).order("created_at DESC")
+    elsif params[:author_search]
+      @books = @books.author_search(params[:author_search]).order("created_at DESC")
     else
       @books = @books.all.order("created_at DESC")
     end

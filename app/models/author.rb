@@ -18,15 +18,32 @@ class Author < ApplicationRecord
     end
   end
 
-  def self.search(search)
-    where("first_name ILIKE ? OR last_name ILIKE ? OR birth_year ILIKE ? OR death_year ILIKE ? OR birth_place ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
-    
-    joins(:books).where("title ILIKE ? OR award ILIKE ?", "%#{search}%", "%#{search}%")
+  def self.author_search(search)
+    where("full_name ILIKE ?", "%#{search}%")
+  end
+
+  def self.book_search(search)
+    joins(:books).where("title ILIKE ?", "%#{search}%")
+  end
+
+  def self.death_year_search(search)
+    where("death_year ILIKE ?", "%#{search}%")
+  end
+
+  def self.birth_place_search(search)
+    where("birth_place ILIKE ?", "%#{search}%")
+  end
+
+  def self.birth_year_search(search)
+    where("birth_year ILIKE ?", "%#{search}%")
+  end
+
+  def self.award_search(search)
+    where(self.total_awards = ?, "%#{search}%")
   end
 
   def prev
     Author.unscoped.where('last_name < ?', last_name).order('last_name ASC').last
-
   end
 
   def next

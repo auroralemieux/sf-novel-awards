@@ -20,7 +20,11 @@
     <h2 class="books-list-header">Books</h2>
 
     <section class="author-books-list">
-
+      <% if @author.books.size == 0 %>
+        <p class="none-found">
+          No books found.
+        </p>
+        <% else %>
       <table class="author-books-table">
         <tr>
           <th>
@@ -48,13 +52,10 @@
         </tr>
         <% end %>
       </table>
+      <% end %>
 
     </section>
-    <% if @author.books.size == 0 %>
-      <p>
-        No books found.
-      </p>
-    <% end %>
+
   </section>
 
   <section class="show-links-bottom">

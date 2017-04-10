@@ -27,13 +27,14 @@ class Book < ApplicationRecord
 
   def self.main_search(search)
     where("title ILIKE ? OR award ILIKE ?", "%#{search}%", "%#{search}%")
-    joins(:author).where("full_name ILIKE ?", "%#{search}%")
+  end
 
+  def self.author_search(search)
+    joins(:author).where("full_name ILIKE ?", "%#{search}%")
   end
 
   def prev
     Book.unscoped.where('title < ?', title).order('title ASC').last
-
   end
 
   def next
