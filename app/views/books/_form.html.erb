@@ -1,40 +1,43 @@
-<%= form_for @book do |f| %>
-  <ul>
-    <li>
-      <%= f.label :title %>
-      <%= f.text_field :title %>
-    </li>
-    <li>
-      <%= f.label :cover %>
-      <%= f.text_field :cover %>
-    </li>
-    <li>
-      <%= f.label :publisher %>
-      <%= f.text_field :publisher %>
-    </li>
-    <li>
-      <%= f.label :description %>
-      <%= f.text_area :description %>
-    </li>
-    <li>
-      <%= f.label :award %>
-      <%= select(:book, :award, Book::AWARDS.keys, {include_blank: true}, required:true ) %>
-    </li>
-    <li>
-      <%= f.label :author_id %>
-      <%= f.collection_select(:author_id, Author.all.order(:last_name), :id, :full_name) %>
-    </li>
-    <li>
-      <%= f.label :year_id %>
-      <%= f.collection_select(:year_id, Year.all.order(:year), :id, :year) %>
-    </li>
-    <li>
-      <%= f.submit "save" %>
-    </li>
-    <li>
-      <%= link_to "cancel", :back %>
-    </li>
-  </ul>
+<section class="new-edit-form">
+
+  <%= form_for @book do |f| %>
+    <ul>
+      <li>
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+      </li>
+      <li>
+        <%= f.label :cover %>
+        <%= f.text_field :cover %>
+      </li>
+      <li>
+        <%= f.label :publisher %>
+        <%= f.text_field :publisher %>
+      </li>
+      <li>
+        <%= f.label :description %>
+        <%= f.text_area :description %>
+      </li>
+      <li>
+        <%= f.label :award %>
+        <%= select(:book, :award, Book::AWARDS.keys, {include_blank: true}, required:true ) %>
+      </li>
+      <li>
+        <%= f.label :author_id %>
+        <%= f.collection_select(:author_id, Author.all.order(:last_name), :id, :full_name) %>
+      </li>
+      <li>
+        <%= f.label :year_id %>
+        <%= f.collection_select(:year_id, Year.all.order(:year), :id, :year) %>
+      </li>
+      <li>
+        <%= f.submit "save" %>
+      </li>
+    </ul>
 
 
-<% end %>
+  <% end %>
+  <li>
+    <%= button_to "cancel", :back, method: :get %>
+  </li>
+</section>

@@ -85,6 +85,11 @@ header {
 
 #search-form {
   padding: 5px 0 0 10px;
+
+}
+
+.search {
+  display: inline-block;
 }
 
 .index-content {
@@ -99,29 +104,62 @@ header {
 .index-table  {
   text-align: center;
   margin: auto;
+  font-family: "Crimson Text", serif;
+
 }
 
 .centered {
   text-align: center;
 }
 
-.index-table th {
+.index-table th, .author-books-table th {
   font-size: 1.25em;
   padding: 10px 5px;
+  font-family: "Cabin Sketch", sans-serif;
 }
 
+.author-total-awards {
+  font-family: "Bungee Shade", sans-serif;
+
+}
 .index-table td {
   padding: 10px 5px;
 
 }
 
-.index-table tr:nth-child(2n+3) {
+.index-table tr:nth-child(2n+3), .author-books-table tr:nth-child(2n+3), .index-years tr:nth-child(2n+3) {
   background-color: #B3E2FF;
 }
 
-.index-table tr:first-child {
+.year-books tr:nth-child(3) {
+  background-color: white;
+}
+
+.year-books {
+  font-family: "Alice", serif;
+}
+
+
+.index-table th, .author-books-table th, .index-years th {
   background-color: #006FB2;
   color: #FFA426;
+}
+
+.year-book-title, .year-book-author {
+  text-align: left;
+}
+
+.year-book-award {
+  width: 100px;
+  font-family: "Faster One", sans-serif;
+}
+
+.year-book-title {
+  width: 200px;
+}
+
+.year-book-author {
+  width: 150px;
 }
 
 /*show*/
@@ -146,34 +184,41 @@ header {
   margin-top: 0;
   display: block;
   text-align: center;
-
 }
 
-.show-content h1, .show-content h2 {
+.show-content h1, .show-content h2, .index-header {
   font-family: "Cabin Sketch", sans-serif;
-
 }
 
 .author-origin {
   font-family: "Play", sans-serif;
-
 }
 
 .books-list-header {
   padding: 40px 0 20px 0;
 }
-.show-data table {
+
+.author-books-table {
   text-align: center;
   margin: auto;
   font-family: "Crimson Text", serif;
   padding-bottom: 40px;
 }
 
-.book-award-text {
-  font-family: "Faster One", sans-serif;
-  /*padding-right: 10px;*/
+.book-detail-publisher, .description {
+  font-family: "Crimson Text", serif;
+
 }
 
+
+.show-details li {
+  padding: 10px 0;
+}
+
+.book-detail-author {
+  font-family: "Baloo Bhai", sans-serif;
+
+}
 .show-data td {
   padding: 5px 20px;
 }
@@ -184,8 +229,31 @@ header {
   padding: 10px 0px;
 }
 
+.left-right {
+  clear: both;
+  /*margin: 0 20px;*/
+  padding-top: 10px;
+}
+.show-left {
+  float: left;
+  text-align: left;
+  width: 70%;
+  padding-left: 20px;
+}
+
+.show-right {
+  /*padding: 50px;*/
+  float: right;
+  width: 20%;
+}
+
+.description {
+  text-align: justify;
+}
+
 .show-links-bottom {
-  padding-top: 20px;
+  clear: both;
+  padding-top: 40px;
 }
 
 .show-links-bottom li {
@@ -198,9 +266,32 @@ header {
   font-size: .5em;
 }
 
-.author-books-list {
-  color: #B26800;
+.book-award-text  {
+  font-family: "Faster One", sans-serif;
 }
+
+
+/*new/edit*/
+.new-author-page, .edit-author-page, .new-book-page, .edit-book-page {
+  padding-top: 100px;
+  padding-left: 200px;
+  font-family: "Baloo Bhai", sans-serif;
+}
+
+.edit-name {
+  font-family: "Crimson Text", serif;
+}
+
+.edit-header, .new-header {
+  font-size: 2em;
+}
+
+.new-edit-form {
+  padding-top: 30px;
+  font-family: "Baloo Bhai", sans-serif;
+
+}
+
 
 /*footer*/
 

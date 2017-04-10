@@ -9,7 +9,11 @@
 
 
   <table class="index-table">
+
     <tr class="centered">
+      <th>
+        Awards
+      </th>
       <th>
         Name
       </th>
@@ -23,11 +27,14 @@
         Birthplace
       </th>
       <th>
-        Awards
+        Books
       </th>
     </tr>
     <% @authors.each do |author| %>
     <tr>
+      <td class="author-total-awards">
+        <%= author.total_awards %>
+      </td>
       <td>
         <%= link_to author.full_name, author_path(author.id) %>
       </td>

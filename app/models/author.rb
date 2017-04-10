@@ -20,6 +20,8 @@ class Author < ApplicationRecord
 
   def self.search(search)
     where("first_name ILIKE ? OR last_name ILIKE ? OR birth_year ILIKE ? OR death_year ILIKE ? OR birth_place ILIKE ?", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%", "%#{search}%")
+    
+    joins(:books).where("title ILIKE ? OR award ILIKE ?", "%#{search}%", "%#{search}%")
   end
 
   def prev
@@ -29,6 +31,18 @@ class Author < ApplicationRecord
 
   def next
     Author.unscoped.where('last_name > ?', last_name).order('last_name ASC').first
+  end
+
+  def total_awards
+    total = 0
+    self.books.each do |book|
+      if book.award == "Hugo" || book.award == "Nebula"
+        total += 1
+      else
+        total += 2
+      end
+    end
+    return total
   end
 
 end

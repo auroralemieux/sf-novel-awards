@@ -21,7 +21,18 @@
 
     <section class="author-books-list">
 
-      <table>
+      <table class="author-books-table">
+        <tr>
+          <th>
+            Award
+          </th>
+          <th>
+            Title
+          </th>
+          <th>
+            Year
+          </th>
+        </tr>
         <% books = @author.books.order(:year_id) %>
         <% books.each do |book| %>
         <tr>

@@ -1,56 +1,53 @@
 <article class="show-content">
 
+  <ul class="next-prev">
+    <li class="left">
+      <%= link_to "Previous Book", @book.prev %>
+    </li>
+    <li class="right">
+      <%= link_to "Next Book", @book.next %>
+    </li>
+  </ul>
+<article class="left-right">
 
-<ul class="next-prev">
-  <li class="left">
-    <%= link_to "Previous Book", @book.prev %>
-  </li>
-  <li class="right">
-    <%= link_to "Next Book", @book.next %>
-  </li>
-</ul>
+  <section class="show-left">
+    <h1 class="show-title"><%=@book.title%></h1>
+    <ul class="show-details">
+      <li class="book-detail-author">
+        <%= link_to @book.author.full_name, author_path(@book.author.id) %>
+      </li>
+      <li class="description">
+        <%= @book.description %>*
+      </li>
+      <li class="book-detail-publisher">
+        Publisher: <%= @book.publisher %>
+      </li>
 
-<h1 class="show-title"><%=@book.title%></h1>
-<%if @book.award == "Hugo"%>
-  <%= image_tag "http://www.thehugoawards.org/content/Logos/Hugo_Logo_1_100px.png"%>
-<%elsif @book.award == "Nebula"%>
-  <%= image_tag "http://www.sfwa.org/wp-content/uploads/2014/05/Logo-Nebula-Web-square-e1455955268252.png"%>
-<% else %>
-<%= image_tag "http://www.sfwa.org/wp-content/uploads/2014/05/Logo-Nebula-Web-square-e1455955268252.png" %>
-<%= image_tag "http://www.thehugoawards.org/content/Logos/Hugo_Logo_1_100px.png"%>
-<%end%>
+      <li class="description-attribution">
+        *All descriptions found at <%= link_to "Wikipedia", "http://www.wikipedia.com" %> or <%= link_to "Goodreads", "http://www.goodreads.com" %>. Please see these fabulous sites for more book information and reviews, etc.
+      </li>
+    </ul>
+  </section>
+  <section class="show-right">
+    <%= image_tag @book.cover %>
+    <p class="book-award-text">
+      <%= @book.award %>
+    </p>
+  </section>
+</article>
 
-<ul class="show-data">
-  <!-- <img src="<%# @book.cover%>"> -->
-  <li>
-    Author: <%= link_to @book.author.full_name, author_path(@book.author.id) %>
-  </li>
-  <li>
-    Published by: <%= @book.publisher %>
-  </li>
-  <li>
-    Description*: <%= @book.description %>
-  </li>
-  <li>
-    Won: <%= @book.award %>
-  </li>
+  <ul class="show-links-bottom">
+    <%# image_tag("award_pic", size: "50x50") %>
+    <li>
+      <%= link_to "edit book", edit_book_path(@book.id) %>
+    </li>
+    <li>
+      <%= link_to "delete book", delete_book_path(@book.id), method: :delete, data: { confirm: "Really delete this book?" }  %>
+    </li>
+    <li>
+      <%= link_to "back", :back %>
+    </li>
 
-  <li class="description-attribution">
-    *All descriptions found at <%= link_to "Wikipedia", "http://www.wikipedia.com" %> or <%= link_to "Goodreads", "http://www.goodreads.com" %>. Please see these fabulous sites for more book information and reviews, etc.
-  </li>
-</ul>
-<ul class="show-links-bottom">
-  <%# image_tag("award_pic", size: "50x50") %>
-  <li>
-    <%= link_to "edit book", edit_book_path(@book.id) %>
-  </li>
-  <li>
-    <%= link_to "delete book", delete_book_path(@book.id), method: :delete, data: { confirm: "Really delete this book?" }  %>
-  </li>
-  <li>
-    <%= link_to "back", :back %>
-  </li>
-
-</ul>
+  </ul>
 
 </article>

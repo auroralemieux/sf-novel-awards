@@ -1,4 +1,6 @@
-<%= form_for @author do |f| %>
+<section class="new-edit-form">
+
+  <%= form_for @author do |f| %>
   <ul>
     <li>
       <%= f.label :first_name %>
@@ -23,10 +25,11 @@
     <li>
       <%= f.submit "save" %>
     </li>
-    <li>
-      <%= link_to "cancel", :back %>
-    </li>
   </ul>
 
 
-<% end %>
+  <% end %>
+  <li>
+    <%= button_to "cancel", :back, method: :get %>
+  </li>
+</section>
