@@ -34,8 +34,6 @@ class Book < ApplicationRecord
     Book.unscoped.where('title > ?', title).order('title ASC').first
   end
 
-  def by_author
-    @books = Book.all.order(author.full_name)
-  end
+
 
 end

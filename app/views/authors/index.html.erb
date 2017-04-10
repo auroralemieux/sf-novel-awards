@@ -1,61 +1,62 @@
-<h1>All Authors</h1>
 <!-- add sort functionality for authors -->
 <%= form_tag(authors_path, method: :get, id: "search-form") do %>
-    <%= text_field_tag :search, params[:search], placeholder: "Search Authors" %>
-    <%= submit_tag "Search", name: nil %>
+<%= text_field_tag :search, params[:search], placeholder: "Search Authors" %>
+<%= submit_tag "Search", name: nil %>
 <% end %>
 <%= button_to 'Reset', authors_path, method: :get %>
 <section class="index-content">
+  <h1 class="index-header">All Authors</h1>
 
-<table class="index-table">
-  <tr class="centered">
-    <th>
-      Name
-    </th>
-    <th>
-      Birth Year
-    </th>
-    <th>
-      Death Year
-    </th>
-    <th>
-      Birthplace
-    </th>
-    <th>
-      Awards
-    </th>
-  </tr>
-  <% @authors.each do |author| %>
-  <tr>
-    <td>
-      <%= link_to author.full_name, author_path(author.id) %>
-    </td>
-    <td class="centered">
-      <%= author.birth_year %>
-    </td>
-    <td class="centered">
-      <%= author.death_year %>
-    </td>
-    <td class="centered">
-      <%= author.birth_place %>
-    </td>
-    <td>
-      <ul>
-      <% author.books.order(:title).each do |book|  %>
-        <li>
-          <%= link_to book.title, book_path(book.id) %> ( <%= book.award %>, <%= book.year.year %>)
-        </li>
+
+  <table class="index-table">
+    <tr class="centered">
+      <th>
+        Name
+      </th>
+      <th>
+        Birth Year
+      </th>
+      <th>
+        Death Year
+      </th>
+      <th>
+        Birthplace
+      </th>
+      <th>
+        Awards
+      </th>
+    </tr>
+    <% @authors.each do |author| %>
+    <tr>
+      <td>
+        <%= link_to author.full_name, author_path(author.id) %>
+      </td>
+      <td class="centered">
+        <%= author.birth_year %>
+      </td>
+      <td class="centered">
+        <%= author.death_year %>
+      </td>
+      <td class="centered">
+        <%= author.birth_place %>
+      </td>
+      <td>
+        <ul>
+          <% author.books.order(:title).each do |book|  %>
+          <li>
+            <%= link_to book.title, book_path(book.id) %> ( <%= book.award %>, <%= book.year.year %>)
+          </li>
+          <% end %>
+        </ul>
+      </td>
       <% end %>
-      </ul>
-    </td>
-  <% end %>
-  <% if @authors.size == 0 %>
-    <p>
-      No authors found.
-    </p>
-  <% end %>
-</tr>
+      <% if @authors.size == 0 %>
+      <p>
+        No authors found.
+      </p>
+      <% end %>
+    </tr>
 
-</table>
+  </table>
 
 </section>

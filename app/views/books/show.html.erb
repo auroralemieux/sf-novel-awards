@@ -1,14 +1,26 @@
-<h1><%=@book.title%></h1>
-<ul>
-  <li>
+<article class="show-content">
+
+
+<ul class="next-prev">
+  <li class="left">
     <%= link_to "Previous Book", @book.prev %>
   </li>
-  <li>
+  <li class="right">
     <%= link_to "Next Book", @book.next %>
   </li>
 </ul>
 
-<ul>
+<h1 class="show-title"><%=@book.title%></h1>
+<%if @book.award == "Hugo"%>
+  <%= image_tag "http://www.thehugoawards.org/content/Logos/Hugo_Logo_1_100px.png"%>
+<%elsif @book.award == "Nebula"%>
+  <%= image_tag "http://www.sfwa.org/wp-content/uploads/2014/05/Logo-Nebula-Web-square-e1455955268252.png"%>
+<% else %>
+<%= image_tag "http://www.sfwa.org/wp-content/uploads/2014/05/Logo-Nebula-Web-square-e1455955268252.png" %>
+<%= image_tag "http://www.thehugoawards.org/content/Logos/Hugo_Logo_1_100px.png"%>
+<%end%>
+
+<ul class="show-data">
   <!-- <img src="<%# @book.cover%>"> -->
   <li>
     Author: <%= link_to @book.author.full_name, author_path(@book.author.id) %>
@@ -17,17 +29,17 @@
     Published by: <%= @book.publisher %>
   </li>
   <li>
-    Description: <%= @book.description %>
+    Description*: <%= @book.description %>
   </li>
   <li>
     Won: <%= @book.award %>
   </li>
-  <%if @book.award == "Hugo"%>
-    <%award_pic = "http://www.thehugoawards.org/content/Logos/Hugo_Logo_1_100px.png"%>
-  <%elsif @book.award == "Nebula"%>
-    <%award_pic = "http://www.sfwa.org/wp-content/uploads/2014/05/Logo-Nebula-Web-square-e1455955268252.png"%>
-  <%end%>
 
+  <li class="description-attribution">
+    *All descriptions found at <%= link_to "Wikipedia", "http://www.wikipedia.com" %> or <%= link_to "Goodreads", "http://www.goodreads.com" %>. Please see these fabulous sites for more book information and reviews, etc.
+  </li>
+</ul>
+<ul class="show-links-bottom">
   <%# image_tag("award_pic", size: "50x50") %>
   <li>
     <%= link_to "edit book", edit_book_path(@book.id) %>
@@ -40,3 +52,5 @@
   </li>
 
 </ul>
+
+</article>

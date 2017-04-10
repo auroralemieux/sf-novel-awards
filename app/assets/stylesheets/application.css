@@ -46,36 +46,17 @@ header {
   z-index: 1;
 }
 
-footer {
-  background-color: #FFA426;
-  height: 50px;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
 
-}
-
-footer ul {
-  display: block;
-  text-align: center;
-
-}
-
-footer li {
-  display: inline-block;
-  padding: 0 30px;
-  padding-top: 15px;
-}
 
 .content {
-  padding-top: 150px;
+  padding-top: 100px;
   position: relative;
   overflow: scroll;
   margin-bottom: 100px;
 }
 
 .main-app-header {
-  font-family: "Fugaz One";
+  font-family: "Fugaz One", sans-serif;
   font-size: 3vw;
   display: block;
   text-align: center;
@@ -91,7 +72,7 @@ footer li {
 }
 
 .top-bar-nav li a {
-  font-family: "Baloo Bhai";
+  font-family: "Baloo Bhai", sans-serif;
   padding: 0 10px;
   text-align: center;
 }
@@ -102,18 +83,145 @@ footer li {
 
 /*index*/
 
+#search-form {
+  padding: 5px 0 0 10px;
+}
+
 .index-content {
-  display: block;
   text-align: center;
 }
+
+.index-header {
+  font-size: 3em;
+
+}
+
 .index-table  {
-  text-align: left;
+  text-align: center;
+  margin: auto;
 }
 
 .centered {
   text-align: center;
 }
 
-th {
-  font-size: 1.5em;
+.index-table th {
+  font-size: 1.25em;
+  padding: 10px 5px;
+}
+
+.index-table td {
+  padding: 10px 5px;
+
+}
+
+.index-table tr:nth-child(2n+3) {
+  background-color: #B3E2FF;
+}
+
+.index-table tr:first-child {
+  background-color: #006FB2;
+  color: #FFA426;
+}
+
+/*show*/
+
+.next-prev li, .show-links-bottom li {
+  display: inline-block;
+  font-family: "Play", sans-serif;
+  padding: 5px 10px ;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.show-content {
+  clear: both;
+  padding: 5px;
+  margin-top: 0;
+  display: block;
+  text-align: center;
+
+}
+
+.show-content h1, .show-content h2 {
+  font-family: "Cabin Sketch", sans-serif;
+
+}
+
+.author-origin {
+  font-family: "Play", sans-serif;
+
+}
+
+.books-list-header {
+  padding: 40px 0 20px 0;
+}
+.show-data table {
+  text-align: center;
+  margin: auto;
+  font-family: "Crimson Text", serif;
+  padding-bottom: 40px;
+}
+
+.book-award-text {
+  font-family: "Faster One", sans-serif;
+  /*padding-right: 10px;*/
+}
+
+.show-data td {
+  padding: 5px 20px;
+}
+
+.show-title {
+  clear: both;
+  font-size: 2em;
+  padding: 10px 0px;
+}
+
+.show-links-bottom {
+  padding-top: 20px;
+}
+
+.show-links-bottom li {
+  position: relative;
+  padding: 0 70px;
+  bottom: 0;
+}
+
+.description-attribution {
+  font-size: .5em;
+}
+
+.author-books-list {
+  color: #B26800;
+}
+
+/*footer*/
+
+footer {
+  background-color: #FFA426;
+  height: 50px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  font-family: "Baloo Bhai";
+
+}
+
+footer ul {
+  display: block;
+  text-align: center;
+
+}
+
+footer li {
+  display: inline-block;
+  padding: 0 30px;
+  padding-top: 15px;
 }
