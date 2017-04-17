@@ -1,0 +1,51 @@
+<section class="index-content">
+  <h1 class="index-header">All Awards</h1>
+
+  <% if @awards.size == 0 %>
+  <p class="none-found">
+    No awards found.
+  </p>
+  <% else %>
+
+  <table class="index-table">
+    <tr class="centered">
+      <th>
+        Award Type
+      </th>
+      <th>
+        Year
+      </th>
+      <th>
+        Book
+      </th>
+      <th>
+        Author
+      </th>
+    </tr>
+    <% @awards.each do |award| %>
+    <tr>
+      <td>
+        <%= link_to award.award_type, award_path(award.id) %>
+      </td>
+      <td class="centered">
+        <%= award.year.year %>
+      </td>
+      <td class="centered">
+        <%= link_to award.book.title, book_path(award.book.id) %>
+      </td>
+      <td class="centered">
+        <ul>
+          <% award.book.authors.each do |author| %>
+          <li>
+            <%= link_to author.full_name, author_path(author.id) %>
+          </li>
+          <% end %>
+        </ul>
+      </td>
+    </tr>
+    <% end %>
+
+
+  </table>
+  <% end %>
+</section>

@@ -1,0 +1,18 @@
+<section class="new-edit-form">
+
+  <%= form_for @award do |f| %>
+
+    <%= f.label "Award" %>
+    <%= select(:award, :award_type, Award::AWARDS.keys, {include_blank: true}, required:true ) %>
+
+    <%= f.label :book_id %>
+    <%= f.collection_select(:book_id, Book.all.order(:title), :id, :title) %>
+
+    <%= f.label :year_id %>
+    <%= f.collection_select(:year_id, Year.all.order(:year), :id, :year) %>
+
+    <%= f.submit "save" %>
+
+  <% end %>
+    <%= button_to "cancel", :back, method: :get %>
+</section>
