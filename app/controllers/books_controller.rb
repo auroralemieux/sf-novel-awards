@@ -41,13 +41,20 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
-    author = Author.find_by_id(params[:book][:author_id])
-    author.books << @book
+    # author = Author.find_by_id(params[:book][:author_id])
     if @book.update(book_params)
       redirect_to books_path
     else
       render :edit
     end
+  end
+
+  def addauthor
+    @book = Book.find(params[:id])
+
+    Book.author.create(book_id: params[:id], author_id: params[:book][:author_id])
+    
+
   end
 
   def destroy

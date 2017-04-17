@@ -51,7 +51,7 @@
       </td>
       <td class="centered">
         <ul>
-          <% book.authors.each do |author| %>
+          <% book.authors.uniq.each do |author| %>
           <li>
             <%= link_to author.full_name, author_path(author.id) %>
           </li>

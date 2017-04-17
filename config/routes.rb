@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   # resources :users
 
   root to: 'years#index'
+  get '/books/addauthor/:id', to: 'books#addauthor', as: 'add_author'
   resources :books
   resources :authors
   resources :years

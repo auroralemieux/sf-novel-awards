@@ -1,0 +1,19 @@
+<section class="add-author-form">
+
+  <%= form_for @book do |f| %>
+    <ul>
+      <li>
+        <%= f.label :author_id %>
+        <%= f.collection_select(:author_id, Author.all.order(:last_name), :id, :full_name) %>
+      </li>
+      <li>
+        <%= f.submit "add author" %>
+      </li>
+    </ul>
+
+
+  <% end %>
+  <li>
+    <%= button_to "cancel", :back, method: :get %>
+  </li>
+</section>
