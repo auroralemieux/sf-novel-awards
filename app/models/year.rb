@@ -1,5 +1,5 @@
 class Year < ApplicationRecord
-  has_many :books
+  has_many :awards
 
   validates :year, presence: true
 

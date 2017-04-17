@@ -3,9 +3,13 @@
 <%= submit_tag "Search", :name => nil %>
 <% end %>
 <%= button_to 'Reset', years_path, method: :get %>
-
-
 <section class="index-content">
+
+  <% if @years.empty? %>
+  <p>
+    No years found.
+  </p>
+  <% else %>
   <h1 class="index-header">All Years</h1>
   <table class="index-table index-years">
     <tr class="centered">
@@ -23,33 +27,36 @@
       </td>
       <td>
         <table class="year-books">
-          <% books = year.books.order(:award) %>
-          <% books.each do |book| %>
+          <% year.awards.each do |award| %>
           <tr>
             <td class="year-book-award">
-              <%= book.award %>
+              <%= award.award_type %>
             </td>
             <td class="year-book-title">
-              <%= link_to book.title, book_path(book.id) %>
+              <%= link_to award.book.title, book_path(award.book.id) %>
             </td>
             <td class="year-book-author">
-              <%= link_to book.author.full_name, author_path(book.author.id) %>
+              <ul>
+                <% award.book.authors.each do |author| %>
+                <li>
+                  <%= link_to award.book.author.full_name, author_path(award.book.author.id) %>
+                </li>
+                <% end %>
+              </ul>
             </td>
           </tr>
 
           <% end %>
         </table>
-        <% if year.books.size == 0 %>
+        <% if year.awards.size == 0 %>
         <p>
-          No books found for <%= year.year %>.
+          No awards found for <%= year.year %>.
         </p>
         <% end %>
 
       </td>
     </tr>
-
-
-
     <% end %>
   </table>
+  <% end %>
 </section>
