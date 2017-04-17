@@ -1,14 +1,15 @@
 class Book < ApplicationRecord
 
-  AWARDS = {"Nebula" => "Nebula", "Hugo" => "Hugo", "Nebula & Hugo" => "Nebula & Hugo"}
-  belongs_to :author
-  belongs_to :year
+  # AWARDS = {"Nebula" => "Nebula", "Hugo" => "Hugo", "Nebula & Hugo" => "Nebula & Hugo"}
+  has_and_belongs_to_many :authors
+  has_many :awards
+  # belongs_to :year
 
   validates :title, presence: true
   validates :author_id, presence: true
   validates :publisher, presence: true
   validates :description, presence: true
-  validates :year_id, presence: true
+  # validates :year_id, presence: true
 
   def self.to_csv
     attributes = %w(title cover publisher description author_id year_id award)
