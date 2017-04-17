@@ -1,70 +1,75 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Award-winning SF Novels</title>
-    <%= csrf_meta_tags %>
+<head>
+  <title>Award-winning SF Novels</title>
+  <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body>
-    <header>
-      <section class="top-nav">
-        <h1 class="main-app-header"><%= link_to "AWARD-WINNING SPEC FIC NOVELS", root_path %></h1>
-        <ul class="top-bar-nav">
-          <li>
-            <%= link_to "add a year", years_new_path %>
-          </li>
-          <li>
-            <%= link_to "add an author", authors_new_path %>
-          </li>
-          <li>
-            <%= link_to "add a book", books_new_path %>
-          </li>
-          <li>
-            <%= link_to "all books", books_path %>
-          </li>
+<body>
+  <header>
+    <section class="top-nav">
+      <h1 class="main-app-header"><%= link_to "AWARD-WINNING SPEC FIC NOVELS", root_path %></h1>
+      <ul class="top-bar-nav">
+        <li>
+          <%= link_to "add a year", years_new_path %>
+        </li>
+        <li>
+          <%= link_to "add an author", authors_new_path %>
+        </li>
+        <li>
+          <%= link_to "add a book", books_new_path %>
+        </li>
+        <li>
+          <%= link_to "all books", books_path %>
+        </li>
 
-          <li>
-            <%= link_to "all authors", authors_path %>
-          </li>
-          <li>
-            <%= link_to "all years", root_path %>
-          </li>
-        </ul>
-      </section>
-    </header>
-
-
-    <section class="content">
-      <%= yield %>
+        <li>
+          <%= link_to "all authors", authors_path %>
+        </li>
+        <li>
+          <%= link_to "all years", root_path %>
+        </li>
+      </ul>
     </section>
-    <footer>
-      <section class="bottom-nav">
-        <ul>
-          <li>
-            &copy; 2017
-          </li>
-          <li>
-            <%= link_to "aurora lemieux anderson", "http://www.github.com/auroralemieux" %>
-          </li>
-          <li>
-            <%# link_to "contact me", new_contact_path %>
-          </li>
-        </ul>
-      </section>
-    </footer>
+  </header>
 
 
-  </body>
+  <section class="content">
+    <section class="flash">
+      <% flash.each do |name, message| %>
+      <div class="<%= name %>"><%= message %></div>
+      <% end %>
+    </section>
+    <%= yield %>
+  </section>
+  <footer>
+    <section class="bottom-nav">
+      <ul>
+        <li>
+          &copy; 2017
+        </li>
+        <li>
+          <%= link_to "aurora lemieux anderson", "http://www.github.com/auroralemieux" %>
+        </li>
+        <li>
+          <%# link_to "contact me", new_contact_path %>
+        </li>
+      </ul>
+    </section>
+  </footer>
 
+
+</body>
+
+<div>
+  <% flash.each do |key, value| %>
   <div>
-    <% flash.each do |key, value| %>
-      <div>
-        <a href="#" data-dismiss="alert">×</a>
-          <%= value %>
-      </div>
-    <% end %>
+    <a href="#" data-dismiss="alert">×</a>
+    <%= value %>
   </div>
+  <% end %>
+</div>
 </html>

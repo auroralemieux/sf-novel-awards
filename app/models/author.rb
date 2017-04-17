@@ -62,4 +62,8 @@ class Author < ApplicationRecord
     return total
   end
 
+  # def self.sort_by_total_awards
+  #   Author.all.sort_by(&:total_awards)
+  # end
+
 end

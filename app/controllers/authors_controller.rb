@@ -50,6 +50,11 @@ class AuthorsController < ApplicationController
     redirect_to years_path
   end
 
+  # def sort_by_awards
+  #   @authors = Author.sort_by_total_awards
+  #   redirect_to authors_path
+  # end
+
   private
 
   def author_params

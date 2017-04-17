@@ -1,17 +1,20 @@
-<%= form_for @year do |f| %>
-  <ul>
-    <li>
-      <%= f.label :year %>
-      <%= f.text_field :year %>
-    </li>
-    <li>
-      <%= f.submit "save" %>
-    </li>
-    <li>
-      <%= link_to "cancel", :back %>
-    </li>
-  </ul>
+<section class="new-edit-form">
 
 
-<% end %>
-<%# select("author", "name", Author.all.collect { |author| author.name }, {prompt: 'select author'}) %>
+  <%= form_for @year do |f| %>
+    <ul>
+      <li>
+        <%= f.label :year %>
+        <%= f.text_field :year %>
+      </li>
+      <li>
+        <%= f.submit "save" %>
+      </li>
+      <li>
+        <%= link_to "cancel", :back %>
+      </li>
+    </ul>
+
+
+  <% end %>
+</section>

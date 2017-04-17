@@ -1,10 +1,16 @@
 Rails.application.routes.draw do
 
+  get 'users/new'
+
+  get 'users/create'
+
   resources :contacts,  only: [:new, :create]
 
   # resources :years, only: [:index, :show, :new] #for example
 
   root to: 'years#index'
+
+  # get '/authors', to: 'authors#sort_by_awards', as: 'award_authors'
 
   get '/years', to: 'years#index'
   get '/years/new', to: 'years#new'

@@ -287,7 +287,7 @@ header a:hover {
 
 
 /*new/edit*/
-.new-author-page, .edit-author-page, .new-book-page, .edit-book-page {
+.new-author-page, .edit-author-page, .new-book-page, .edit-book-page, .new-year-page {
   padding-top: 100px;
   padding-left: 200px;
   font-family: "Baloo Bhai", sans-serif;
