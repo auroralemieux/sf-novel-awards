@@ -39,7 +39,7 @@
               <ul>
                 <% award.book.authors.each do |author| %>
                 <li>
-                  <%= link_to award.book.author.full_name, author_path(award.book.author.id) %>
+                  <%= link_to author.full_name, author_path(author.id) %>
                 </li>
                 <% end %>
               </ul>

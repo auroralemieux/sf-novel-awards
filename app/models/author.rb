@@ -53,14 +53,14 @@ class Author < ApplicationRecord
   def total_awards
     total = 0
     self.books.each do |book|
-      if book.award == "Hugo" || book.award == "Nebula"
+      book.awards.each do |award|
         total += 1
-      else
-        total += 2
       end
     end
     return total
   end
+
+  
 
   # def self.sort_by_total_awards
   #   Author.all.sort_by(&:total_awards)

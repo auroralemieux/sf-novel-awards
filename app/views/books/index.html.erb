@@ -68,7 +68,7 @@
 
         <% book.awards.each do |award| %>
         <li>
-          <%= award.award_type %> in <%= award.year.year %>
+          <%= award.award_type %> <%= award.year.year %>
         </li>
         <% end %>
       </ul>

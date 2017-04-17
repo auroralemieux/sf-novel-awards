@@ -12,7 +12,7 @@ class Book < ApplicationRecord
   # validates :year_id, presence: true
 
   def self.to_csv
-    attributes = %w(title cover publisher description author_id year_id award)
+    attributes = %w(title cover publisher description author_id)
     CSV.generate( headers: true ) do |csv|
       csv << attributes
 
@@ -27,7 +27,7 @@ class Book < ApplicationRecord
   end
 
   def self.main_search(search)
-    where("title ILIKE ? OR award ILIKE ?", "%#{search}%", "%#{search}%")
+    where("title ILIKE ? OR", "%#{search}%")
   end
 
   def self.author_search(search)

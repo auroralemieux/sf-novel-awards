@@ -62,7 +62,10 @@
         <ul>
           <% author.books.order(:title).each do |book|  %>
           <li>
-            <%= link_to book.title, book_path(book.id) %> ( <%= book.award %>, <%= book.year.year %>)
+            <%= link_to book.title, book_path(book.id) %>
+            <% book.awards.each do |award| %>
+              <%= award.award_type %> <%= award.year.year %>
+            <% end %>
           </li>
           <% end %>
         </ul>

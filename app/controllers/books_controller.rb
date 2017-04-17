@@ -41,6 +41,8 @@ class BooksController < ApplicationController
 
   def update
     @book = Book.find(params[:id])
+    author = Author.find_by_id(params[:book][:author_id])
+    author.books << @book
     if @book.update(book_params)
       redirect_to books_path
     else
@@ -56,6 +58,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :cover, :publisher, :description, :author_id, :year_id, :award)
+    params.require(:book).permit(:title, :cover, :publisher, :description, :author_id)
   end
 end
