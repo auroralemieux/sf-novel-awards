@@ -56,7 +56,11 @@ class BooksController < ApplicationController
   # end
 
   def destroy
-    @book = Book.find(params[:id]).destroy
+    @book = Book.find(params[:id])
+    @book.awards.each do |award|
+      award.destroy
+    end
+    @book.destroy
     redirect_to years_path
   end
 
