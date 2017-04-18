@@ -49,13 +49,13 @@ class BooksController < ApplicationController
     end
   end
 
-  def addauthor
-    @book = Book.find(params[:id])
-
-    Book.author.create(book_id: params[:id], author_id: params[:book][:author_id])
-    
-
-  end
+  # def addauthor
+  #   @book = Book.find(params[:id])
+  #
+  #   Book.author.create(book_id: params[:id], author_id: params[:book][:author_id])
+  #
+  #
+  # end
 
   def destroy
     @book = Book.find(params[:id]).destroy
@@ -65,6 +65,6 @@ class BooksController < ApplicationController
   private
 
   def book_params
-    params.require(:book).permit(:title, :cover, :publisher, :description, :author_id)
+    params.require(:book).permit(:title, :cover, :publisher, :description, author_ids: [])
   end
 end

@@ -19,6 +19,11 @@
         <%= f.text_area :description %>
       </li>
       <li>
+        <%= f.label :author_ids %>
+        <%= f.collection_select :author_ids, Author.order(:full_name), :id, :full_name, {}, {multiple: true} %>
+      </li>
+
+      <li>
         <%= f.submit "save" %>
       </li>
     </ul>

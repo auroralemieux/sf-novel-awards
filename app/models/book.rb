@@ -6,13 +6,13 @@ class Book < ApplicationRecord
   # belongs_to :year
 
   validates :title, presence: true
-  validates :author_id, presence: true
+  # validates :author_id, presence: true
   validates :publisher, presence: true
   validates :description, presence: true
   # validates :year_id, presence: true
 
   def self.to_csv
-    attributes = %w(title cover publisher description author_id)
+    attributes = %w(title cover publisher description author_ids)
     CSV.generate( headers: true ) do |csv|
       csv << attributes
 
