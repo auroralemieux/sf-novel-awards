@@ -14,23 +14,28 @@
       <h1 class="main-app-header"><%= link_to "AWARD-WINNING SPEC FIC NOVELS", root_path %></h1>
       <ul class="top-bar-nav">
         <li>
-          <%= link_to "add a year", new_year_path %>
+          <%= link_to "new book", new_book_path %>
         </li>
         <li>
-          <%= link_to "add an author", new_author_path %>
+          <%= link_to "new author", new_author_path %>
         </li>
         <li>
-          <%= link_to "add a book", new_book_path %>
+          <%= link_to "new year", new_year_path %>
         </li>
         <li>
-          <%= link_to "all books", books_path %>
-        </li>
-
-        <li>
-          <%= link_to "all authors", authors_path %>
+          <%= link_to "new award", new_award_path %>
         </li>
         <li>
-          <%= link_to "all years", root_path %>
+          <%= link_to "books", books_path %>
+        </li>
+        <li>
+          <%= link_to "authors", authors_path %>
+        </li>
+        <li>
+          <%= link_to "years", root_path %>
+        </li>
+        <li>
+          <%= link_to "awards", awards_path %>
         </li>
       </ul>
     </section>

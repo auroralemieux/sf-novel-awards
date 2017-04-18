@@ -21,21 +21,19 @@
 
     <section class="author-books-list">
       <% if @author.books.size == 0 %>
-        <p class="none-found">
-          No books found.
-        </p>
-        <% else %>
+      <p class="none-found">
+        No books found.
+      </p>
+      <% else %>
       <table class="author-books-table">
         <tr>
-          <th>
-            Award
-          </th>
           <th>
             Title
           </th>
           <th>
-            Year
+            Award
           </th>
+
         </tr>
         <% books = @author.books.order(:title) %>
         <% books.each do |book| %>
@@ -44,13 +42,18 @@
             <%= link_to book.title, book_path(book.id) %>
           </td>
 
-          <td class="book-award-text">
-            <% book.awards.each do |award| %>
-            <%= award.award_type %>
-            <%= award.year.year %>
-            <% end %>
+          <td class="book-award">
+            <ul>
+
+              <% book.awards.each do |award| %>
+              <li>
+                <%= award.award_type %>
+                <%= award.year.year %>
+              </li>
+              <% end %>
+            </ul>
           </td>
-  
+
         </tr>
         <% end %>
       </table>

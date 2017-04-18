@@ -25,7 +25,7 @@
     <% @awards.each do |award| %>
     <tr>
       <td>
-        <%= link_to award.award_type, award_path(award.id) %>
+        <%= award.award_type %>
       </td>
       <td class="centered">
         <%= award.year.year %>

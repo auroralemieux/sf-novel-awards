@@ -19,8 +19,8 @@
         <%= f.text_area :description %>
       </li>
       <li>
-        <%= f.label :author_ids %>
-        <%= f.collection_select :author_ids, Author.order(:full_name), :id, :full_name, {}, {multiple: true} %>
+        <%= f.label "Author(s)" %>
+        <%= f.collection_select :author_ids, Author.order(:last_name), :id, :full_name, {}, {multiple: true} %>
       </li>
 
       <li>
