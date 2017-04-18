@@ -133,12 +133,12 @@ header a:hover {
 
 }
 
-.index-table tr:nth-child(2n+3), .index-years tr:nth-child(2n+3), .author-books-table tr:nth-child(2n+3) {
+.index-table tr:nth-child(2n+3) {
   background-color: #B3E2FF;
 }
 
-.year-books tr:nth-child(3) {
-  background-color: white;
+table table {
+  background-color: inherit;
 }
 
 .year-books {
