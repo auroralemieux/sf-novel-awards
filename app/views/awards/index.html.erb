@@ -1,17 +1,17 @@
 <section class="index-content">
   <h1 class="index-header">All Awards</h1>
 
-  <% if @awards.size == 0 %>
+  <% @awards.each do |award_category, list| %>
+  <h2>
+    <%= award_category %>
+  </h2>
+  <% if !list.any? %>
   <p class="none-found">
     No awards found.
   </p>
   <% else %>
-
-  <table class="index-table">
+  <table class="award-table index-table">
     <tr class="centered">
-      <th>
-        Award Type
-      </th>
       <th>
         Year
       </th>
@@ -22,18 +22,15 @@
         Author
       </th>
     </tr>
-    <% @awards.each do |award| %>
+    <% list.each do |award| %>
     <tr>
       <td>
-        <%= award.award_type %>
-      </td>
-      <td class="centered">
         <%= award.year.year %>
       </td>
-      <td class="centered">
+      <td>
         <%= link_to award.book.title, book_path(award.book.id) %>
       </td>
-      <td class="centered">
+      <td>
         <ul>
           <% award.book.authors.each do |author| %>
           <li>
@@ -44,8 +41,9 @@
       </td>
     </tr>
     <% end %>
-
-
   </table>
+  <% end %>
+
+
   <% end %>
 </section>

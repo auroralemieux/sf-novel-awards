@@ -1,12 +1,10 @@
 class AwardsController < ApplicationController
   def index
-    @awards = Award.all.order(:award_type)
+    @hugos = Award.where(award_type: "Hugo")
+    @nebulas = Award.where(award_type: "Nebula")
+    @auroras = Award.where(award_type: "Aurora")
+    @awards = {"Hugo" => @hugos, "Nebula" => @nebulas, "Aurora" => @auroras}
 
-    # if params[:award_search]
-    #   @awards = @awards.award_search(params[:award_search]).order("created_at DESC")
-    # else
-    #   @awards = @awards.all.order("created_at DESC")
-    # end
 
     respond_to do |format|
       format.html
