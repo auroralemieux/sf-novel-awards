@@ -5,6 +5,7 @@ class AwardsController < ApplicationController
     @auroras = Award.where(award_type: "Aurora")
     @awards = {"Hugo" => @hugos, "Nebula" => @nebulas, "Aurora" => @auroras}
 
+# User.joins(:pets).where("pets.name != ?", "fluffy")
 
     respond_to do |format|
       format.html

@@ -57,24 +57,31 @@
       <td class="centered">
         <%= author.birth_place %>
       </td>
-
       <td>
-        <ul>
-          <% author.books.order(:title).each do |book|  %>
-          <li>
-            <%= link_to book.title, book_path(book.id) %>
-            <% book.awards.each do |award| %>
-              <%= award.award_type %> <%= award.year.year %>
-            <% end %>
-          </li>
-          <% end %>
-        </ul>
-      </td>
 
-    </tr>
-    <% end %>
-
-  </table>
+        <table class="books-awards">
+          <% author.books.order(:title).each do |book| %>
+          <tr>
+            <td>
+              <%= link_to book.title, book_path(book.id) %>
+            </td>
+            <td>
+              <ul>
+                <% book.awards.each do |award| %>
+                <li>
+                (<%= award.award_type %> <%= award.year.year %>)
+              </li>
+              <% end %>
+            </ul>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </td>
+  </tr>
   <% end %>
+
+</table>
+<% end %>
 
 </section>
