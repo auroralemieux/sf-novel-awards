@@ -4,6 +4,8 @@ class Award < ApplicationRecord
 
   default_scope { joins(:year).order('year ASC') }
 
+  scope :award_book, -> { joins("left join awards on book_id = books.id").order("books.title") }
+
   validates :award_type, presence: true
   AWARDS = {"Nebula" => "Nebula", "Hugo" => "Hugo", "Aurora" => "Aurora"}
 

@@ -1,7 +1,9 @@
 class BooksController < ApplicationController
-  def index
-    @books = Book.all.order(:title)
 
+  helper_method :sort_column, :sort_direction
+
+  def index
+    @books = Book.order("#{sort_column} #{sort_direction}")
     respond_to do |format|
       format.html
       format.csv { send_data @books.to_csv }
@@ -47,14 +49,6 @@ class BooksController < ApplicationController
     end
   end
 
-  # def addauthor
-  #   @book = Book.find(params[:id])
-  #
-  #   Book.author.create(book_id: params[:id], author_id: params[:book][:author_id])
-  #
-  #
-  # end
-
   def destroy
     @book = Book.find(params[:id])
     @book.awards.each do |award|
@@ -65,6 +59,18 @@ class BooksController < ApplicationController
   end
 
   private
+
+  def sortable_columns
+    ["title", "author"]
+  end
+
+  def sort_column
+    sortable_columns.include?(params[:column]) ? params[:column] : "title"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 
   def book_params
     params.require(:book).permit(:title, :cover, :publisher, :description, author_ids: [])

@@ -1,5 +1,5 @@
 <section class="index-content">
-  <% @awards.each do |award_category, list| %>
+  <% @categories.each do |award_category, list| %>
   <h1 class="index-header">
     <%= award_category %>
   </h1>
@@ -10,11 +10,12 @@
   <% else %>
   <table class="award-table index-table">
     <tr class="centered">
-      <th>
-        Year
+      <th class="sort-link">
+        <%= sort_link "years.year", "Year" %>
+
       </th>
-      <th>
-        Book
+      <th class="sort-link">
+        <%= sort_link "books.title", "Book" %>
       </th>
       <th>
         Author

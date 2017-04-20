@@ -18,19 +18,18 @@
     <tr class="centered">
       <th>
         Awards
-        <%# link_to "Awards", award_authors_path, action: :get %>
       </th>
-      <th>
-        Name
+      <th class="sort-link">
+        <%= sort_link "last_name", "Author" %>
       </th>
-      <th>
-        Birth Year
+      <th class="sort-link">
+        <%= sort_link "birth_year", "Birth" %>
       </th>
-      <th>
-        Death Year
+      <th class="sort-link">
+        <%= sort_link "death_year", "Death" %>
       </th>
-      <th>
-        Birthplace
+      <th class="sort-link">
+        <%= sort_link "birth_place", "Birthplace" %>
       </th>
       <th>
         Books

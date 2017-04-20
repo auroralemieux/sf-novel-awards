@@ -1,11 +1,13 @@
 class AwardsController < ApplicationController
-  def index
-    @hugos = Award.where(award_type: "Hugo")
-    @nebulas = Award.where(award_type: "Nebula")
-    @auroras = Award.where(award_type: "Aurora")
-    @awards = {"Hugo" => @hugos, "Nebula" => @nebulas, "Aurora" => @auroras}
 
-# User.joins(:pets).where("pets.name != ?", "fluffy")
+  helper_method :sort_column, :sort_direction
+
+  def index
+    @awards = Award.order("#{sort_column} #{sort_direction}")
+    @hugos = Award.where(award_type: "Hugo").order("#{sort_column} #{sort_direction}")
+    @nebulas = Award.where(award_type: "Nebula").order("#{sort_column} #{sort_direction}")
+    @auroras = Award.where(award_type: "Aurora").order("#{sort_column} #{sort_direction}")
+    @categories = {"Hugo" => @hugos, "Nebula" => @nebulas, "Aurora" => @auroras}
 
     respond_to do |format|
       format.html
@@ -54,6 +56,18 @@ class AwardsController < ApplicationController
   # end
 
   private
+
+  def sortable_columns
+    ["year.year", "book.title"]
+  end
+
+  def sort_column
+    sortable_columns.include?(params[:column]) ? params[:column] : "year.year"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 
   def award_params
     params.require(:award).permit(:award_type, :year_id, :book_id)

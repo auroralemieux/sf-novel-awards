@@ -288,6 +288,8 @@ table {
 }
 
 
+
+
 /*new/edit*/
 .new-author-page, .edit-author-page, .new-book-page, .edit-book-page, .new-year-page {
   padding-top: 100px;
@@ -360,4 +362,8 @@ footer li {
   display: inline-block;
   padding: 0 30px;
   padding-top: 15px;
+}
+
+.sort-link a {
+  color: #B26800;
 }

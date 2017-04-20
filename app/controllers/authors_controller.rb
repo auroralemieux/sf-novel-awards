@@ -1,6 +1,9 @@
 class AuthorsController < ApplicationController
+
+  helper_method :sort_column, :sort_direction
+
   def index
-    @authors = Author.all.order(:last_name)
+    @authors = Author.order("#{sort_column} #{sort_direction}")
 
     if params[:author_search]
       @authors = @authors.author_search(params[:author_search]).order("created_at DESC")
@@ -56,6 +59,18 @@ class AuthorsController < ApplicationController
   # end
 
   private
+
+  def sortable_columns
+    ["last_name", "birth_year", "death_year", "birth_place"]
+  end
+
+  def sort_column
+    sortable_columns.include?(params[:column]) ? params[:column] : "last_name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
 
   def author_params
     params.require(:author).permit(:first_name, :last_name, :birth_year, :death_year, :birth_place)
